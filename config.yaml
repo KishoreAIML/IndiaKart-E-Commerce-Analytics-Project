@@ -1,0 +1,9 @@
+Project:
+  Name: IndiaKart E-Commerce Analytics project
+
+Paths:
+  Raw_data: data/raw
+  Load_data: src/data
+  Database: src/database
+  Reports: reports 
+  
