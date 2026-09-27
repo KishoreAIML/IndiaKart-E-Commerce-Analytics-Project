@@ -232,6 +232,10 @@ These KPIs provide measurable indicators of IndiaKart's revenue, customer, opera
   - Operations
   - Inventory Analysis
 
+  <p align="center">
+     <img src="reports/figures/dashboard.png" alt="StreamFlix.jpg" width="700">
+</p>
+
 ### 8. Business Insights & Final Report
 
 - Consolidated findings from SQL analysis, Python EDA, KPI calculations, and Power BI dashboards.
