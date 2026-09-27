@@ -113,3 +113,36 @@ join products p
 	 ON s.supplier_id = p.supplier_id
 group by s.supplier_id,s.supplier_name, s.category, s.rating, s.payment_terms_days
 order by avg_product_rating;
+
+-- 10. Cohort: New Customers by Month
+
+SELECT
+    FORMAT(registration_date,'yyyy-MM') AS cohort_month,
+    COUNT(customer_id)  AS new_customers,
+    segment,
+    SUM(total_orders)   AS orders_placed,
+    SUM(total_spent)    AS revenue_inr
+FROM customers
+GROUP BY FORMAT(registration_date,'yyyy-MM'), segment
+ORDER BY cohort_month;
+
+-- 11. Channel Performance
+SELECT
+    channel,
+    COUNT(order_id)      AS orders,
+    SUM(final_amount)    AS revenue_inr,
+    AVG(final_amount)    AS avg_order_value,
+    SUM(CASE WHEN status='Cancelled' THEN 1 ELSE 0 END)*100.0/COUNT(*) AS cancel_rate
+FROM orders
+GROUP BY channel ORDER BY revenue_inr DESC;
+
+-- 12. Festive Season Sales (Oct-Nov Diwali Window)
+SELECT
+    YEAR(order_date)  AS year,
+    MONTH(order_date) AS month,
+    COUNT(order_id)   AS orders,
+    SUM(final_amount) AS revenue_inr
+FROM orders
+WHERE MONTH(order_date) IN (10,11)
+GROUP BY YEAR(order_date), MONTH(order_date)
+order by year, month;
