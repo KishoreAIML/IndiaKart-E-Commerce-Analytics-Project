@@ -14,11 +14,10 @@ logging.basicConfig(
 )
 
 @profile
-def read_data(tablename: str)-> None:
+def read_data(tablename: str, directory_path: str)-> None:
     try:
         logging.info("Changing directiory...")
-        os.chdir(ROOT_DIR/Raw_data)
-        print("current cwd : ", os.getcwd())
+        os.chdir(ROOT_DIR/directory_path)
         logging.info("loading dataset...")
         data = pd.read_csv(f"{tablename}.csv")
         logging.info("@@@@ dataset Readed Successfuly. @@@")

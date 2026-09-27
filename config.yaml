@@ -6,4 +6,5 @@ Paths:
   Load_data: src/data
   Database: src/database
   Reports: reports 
+  Processed_data: data/processed
   
