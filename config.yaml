@@ -7,4 +7,5 @@ Paths:
   Database: src/database
   Reports: reports 
   Processed_data: data/processed
+  Figures : reports/figures
   
